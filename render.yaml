@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: chat-application
+    env: node
+    buildCommand: 'npm install'
+    startCommand: 'npm start'
+    envVars:
+      - key: MONGO_URI
+        value: mongodb+srv://atith:12345@cluster0.6hengam.mongodb.net/chatjs
+      - key: JWT_SECRET
+        value: your_jwt_secret
+      - key: PORT
+        value: 3000
