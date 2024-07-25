@@ -50,7 +50,10 @@ async function login() {
     alert('Login successful!');
     document.getElementById('login').style.display = 'none';
     document.getElementById('chat').style.display = 'block';
-    socket = new WebSocket(`ws://localhost:3000/?token=${data.token}`);
+    const socketUrl = new URL('wss://chatjsassignment.onrender.com');
+    socketUrl.searchParams.append('token', data.token);
+    socket = new WebSocket(socketUrl);
+    // socket = new WebSocket(`https://chatjsassignment.onrender.com`);
 
     socket.onopen = () => {
       console.log('WebSocket connection established');
